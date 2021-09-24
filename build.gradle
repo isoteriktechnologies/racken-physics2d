@@ -1,0 +1,46 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
+}
+
+ext {
+    PUBLISH_GROUP_ID = 'com.isoterik'
+    PUBLISH_VERSION = '1.0.0-SNAPSHOT'
+    PUBLISH_ARTIFACT_ID = 'racken-physics2d'
+}
+
+apply from: "${rootDir}/scripts/publish-root.gradle"
+apply from: "${rootProject.projectDir}/scripts/publish-module.gradle"
+
+group = PUBLISH_GROUP_ID
+version = PUBLISH_VERSION
+
+ext {
+    gdxVersion = '1.10.0'
+    rackenVersion = '1.0.0-SNAPSHOT'
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven { url "https://plugins.gradle.org/m2/" }
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+
+    implementation "com.badlogicgames.gdx:gdx:$gdxVersion"
+    implementation "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
+    implementation "com.isoterik:racken:$rackenVersion"
+}
+
+test {
+    useJUnitPlatform()
+}
+
+task assembleToLocalRepository(dependsOn: ['clean', 'build', 'publishToMavenLocal'])
+build.mustRunAfter clean
+publishToMavenLocal.mustRunAfter build
