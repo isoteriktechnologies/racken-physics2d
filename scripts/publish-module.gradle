@@ -31,7 +31,7 @@ afterEvaluate {
 
                 pom {
                     name = PUBLISH_ARTIFACT_ID
-                    description = 'A libGDX extension for easier and faster game development'
+                    description = 'An extension of Racken for 2d physics support'
                     url = 'https://github.com/isoteriktechnologies/racken-physics2d'
 
                     licenses {
