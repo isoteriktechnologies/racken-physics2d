@@ -32,7 +32,8 @@ public class ColliderTest extends Scene {
         box.addComponent(new BoxCollider());
 
         circle.addComponent(new CircleCollider());
-        circle.addComponent(new RigidBody2d(RigidBody2d.DynamicBody, new PhysicsMaterial2d(.1f, .9f, .5f),
+        circle.addComponent(new RigidBody2d(RigidBody2d.DynamicBody, new PhysicsMaterial2d(.1f, .9f,
+                .5f),
                 physicsManager2d));
 
         addGameObject(box);
