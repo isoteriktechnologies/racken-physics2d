@@ -25,7 +25,8 @@ public class BoxCollider extends Collider {
     { size = new Vector2(width, height); }
 
     /**
-     * Creates a new instance with no dimension. If no dimension is set before the collider is used, it will assume the dimension of its host game object
+     * Creates a new instance with no dimension. If no dimension is set before the collider is used, it will assume the
+     * dimension of its host game object
      */
     public BoxCollider()
     { this(0, 0); }
@@ -38,7 +39,8 @@ public class BoxCollider extends Collider {
 
     /**
      * Sets the size of the game object.
-     * <strong>Note:</strong> this has no effect if this collider has already been used by a {@link io.github.isoteriktech.xgdx.physics2d.RigidBody2d}
+     * <strong>Note:</strong> this has no effect if this collider has already been used by a
+     * {@link com.isoterik.racken.physics2d.RigidBody2d}
      * @param width the width of the box
      * @param height the height of the box
      */
@@ -47,7 +49,8 @@ public class BoxCollider extends Collider {
 
     /**
      * Sets the size of the game object.
-     * <strong>Note:</strong> this has no effect if this collider has already been used by a {@link io.github.isoteriktech.xgdx.physics2d.RigidBody2d}
+     * <strong>Note:</strong> this has no effect if this collider has already been used by a
+     * {@link com.isoterik.racken.physics2d.RigidBody2d}
      * @param size the size of the box
      */
     public void setSize(Vector2 size)
@@ -62,7 +65,8 @@ public class BoxCollider extends Collider {
 
     /**
      * Sets the center of the box in local coordinates.
-     * <strong>Note:</strong> this has no effect if this collider has already been used by a {@link io.github.isoteriktech.xgdx.physics2d.RigidBody2d}
+     * <strong>Note:</strong> this has no effect if this collider has already been used by a
+     * {@link com.isoterik.racken.physics2d.RigidBody2d}
      * @param center the center
      */
     public void setCenter(Vector2 center) {
@@ -71,7 +75,8 @@ public class BoxCollider extends Collider {
 
     /**
      * Sets the center of the box in local coordinates.
-     * <strong>Note:</strong> this has no effect if this collider has already been used by a {@link io.github.isoteriktech.xgdx.physics2d.RigidBody2d}
+     * <strong>Note:</strong> this has no effect if this collider has already been used by a
+     * {@link com.isoterik.racken.physics2d.RigidBody2d}
      * @param cx the x-coordinate of the center
      * @param cy the y-coordinate of the center
      */
@@ -89,7 +94,8 @@ public class BoxCollider extends Collider {
 
     /**
      * Sets the rotation in radians of the box in local coordinates.
-     * <strong>Note:</strong> this has no effect if this collider has already been used by a {@link io.github.isoteriktech.xgdx.physics2d.RigidBody2d}
+     * <strong>Note:</strong> this has no effect if this collider has already been used by a
+     * {@link com.isoterik.racken.physics2d.RigidBody2d}
      * @param angle the rotation in radians of the box in local coordinates.
      */
     public void setAngle(float angle) {

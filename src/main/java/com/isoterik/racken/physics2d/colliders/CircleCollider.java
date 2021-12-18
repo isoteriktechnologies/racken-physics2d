@@ -33,7 +33,8 @@ public class CircleCollider extends Collider {
     { this(radius, 0, 0); }
 
     /**
-     * Creates a new instance with no radius. If no valid radius is set before this collider gets used by a {@link io.github.isoteriktech.xgdx.physics2d.RigidBody2d}, the collider will assume the radius of
+     * Creates a new instance with no radius. If no valid radius is set before this collider gets used by a
+     * {@link com.isoterik.racken.physics2d.RigidBody2d}, the collider will assume the radius of
      * the host game object
      */
     public CircleCollider()
@@ -47,7 +48,8 @@ public class CircleCollider extends Collider {
 
     /**
      * Sets the radius of the circle.
-     * <strong>Note:</strong> this has no effect if this collider has already been used by a {@link io.github.isoteriktech.xgdx.physics2d.RigidBody2d}
+     * <strong>Note:</strong> this has no effect if this collider has already been used by a
+     * {@link com.isoterik.racken.physics2d.RigidBody2d}
      * @param radius the radius of the circle
      */
     public void setRadius(float radius)

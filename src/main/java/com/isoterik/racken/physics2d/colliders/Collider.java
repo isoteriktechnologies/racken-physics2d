@@ -45,7 +45,8 @@ public abstract class Collider extends Component {
 
     /**
      * Sets the physics material for this collider.
-     * <strong>Note:</strong> this has no effect if the collider has already been used by a {@link io.github.isoteriktech.xgdx.physics2d.RigidBody2d}
+     * <strong>Note:</strong> this has no effect if the collider has already been used by a
+     * {@link com.isoterik.racken.physics2d.RigidBody2d}
      * @param material the physics material
      * @return the collider for chaining
      */

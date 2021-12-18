@@ -9,7 +9,7 @@ import com.isoterik.racken.GameObject;
 import com.isoterik.racken.Scene;
 
 /**
- * PhysicsManager2d manages all physical interactions in a scene when attached to a GameObject of such scene.
+ * PhysicsManager2d manages all physical interactions in a scene when attached to a GameObject of the scene.
  * For a scene to support 2d physics, at least one of its game objects must have PhysicsManager2d attached as component.
  * <p><p>
  * <strong>
