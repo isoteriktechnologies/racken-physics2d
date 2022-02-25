@@ -11,13 +11,13 @@ import com.isoterik.racken.Scene;
 /**
  * PhysicsManager2d manages all physical interactions in a scene when attached to a GameObject of the scene.
  * For a scene to support 2d physics, at least one of its game objects must have PhysicsManager2d attached as component.
- * <p><p>
+ * <p>
  * <strong>
  *     Since PhysicsManager2d is a component, many copies of it can be created and added to different game objects in a
  *     scene BUT THIS IS A BAD IDEA. PhysicsManager2d is a heavy object! Only one instance of it should exist in a scene,
  *     NEVER INSTANTIATE MANY COPIES OF THIS CLASS IN ONE SCENE.
  * </strong>
- * <p><p>
+ * <p>
  * Use {@link #setup(Scene, Vector2)} to quickly add PhysicsManager2d to a scene
  *
  * @author imranabdulmalik

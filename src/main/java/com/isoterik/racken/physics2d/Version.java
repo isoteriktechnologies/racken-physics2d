@@ -9,13 +9,13 @@ public class Version {
     /** the current version of racken as a String in the major.minor.revision format **/
     public static final String VERSION = "1.0.0";
 
-    /** the current major version of racken **/
+    /** the current major version of racken-physics2d **/
     public static final int MAJOR;
 
-    /** the current minor version of racken **/
+    /** the current minor version of racken-physics2d **/
     public static final int MINOR;
 
-    /** the current revision version of racken **/
+    /** the current revision version of racken-physics2d **/
     public static final int REVISION;
 
     static {

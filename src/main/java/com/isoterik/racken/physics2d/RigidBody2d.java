@@ -12,7 +12,7 @@ import com.isoterik.racken.physics2d.colliders.Collider;
  * This component is a wrapper for a box2d {@link com.badlogic.gdx.physics.box2d.Body} instance. Automatically updates
  * the transform of a gameObject to match the physics body transform.
  * It relies on one or more {@link Collider}s to generate collision shapes for the host game object.
- * <p><p>
+ * <p>
  * <strong>Note:</strong> this component uses the host game object as the user data for the
  * {@link com.badlogic.gdx.physics.box2d.Body} for internal uses. Do not override the user data!
  *
