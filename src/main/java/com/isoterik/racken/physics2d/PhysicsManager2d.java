@@ -49,7 +49,8 @@ public class PhysicsManager2d extends Component implements ContactListener {
     /** For rendering physics debug lines. */
     protected Box2DDebugRenderer physicsDebugRenderer;
 
-    private final GameObject.ComponentIterationListener fixedUpdateIter, iterAEnter, iterBEnter, iterAExit, iterBExit;
+    private final GameObject.ComponentIterationListener fixedUpdateIter, preUpdateIter, postUpdateIter,
+            iterAEnter, iterBEnter, iterAExit, iterBExit;
 
     // The collision pool
     private final Collision2d.CollisionPool collisionPool;
@@ -78,7 +79,7 @@ public class PhysicsManager2d extends Component implements ContactListener {
         physicsDebugRenderer = new Box2DDebugRenderer();
 
         fixedUpdateIter = component -> {
-            if (!component.isEnabled())
+            if (!component.isEnabled() || component == this)
                 return;
 
             Physics2d physics2d = toPhysics2d(component);
@@ -86,8 +87,22 @@ public class PhysicsManager2d extends Component implements ContactListener {
                 physics2d.fixedUpdate2d(physicsTimeStep);
         };
 
+        preUpdateIter = component -> {
+            if (!component.isEnabled() || component == this)
+                return;
+
+            component.preUpdate(physicsTimeStep);
+        };
+
+        postUpdateIter = component -> {
+            if (!component.isEnabled() || component == this)
+                return;
+
+            component.postUpdate(physicsTimeStep);
+        };
+
         iterAEnter = component -> {
-            if (!component.isEnabled())
+            if (!component.isEnabled() || component == this)
                 return;
 
             Physics2d physics2d = toPhysics2d(component);
@@ -101,7 +116,7 @@ public class PhysicsManager2d extends Component implements ContactListener {
         };
 
         iterBEnter = component -> {
-            if (!component.isEnabled())
+            if (!component.isEnabled() || component == this)
                 return;
 
             Physics2d physics2d = toPhysics2d(component);
@@ -115,7 +130,7 @@ public class PhysicsManager2d extends Component implements ContactListener {
         };
 
         iterAExit = component -> {
-            if (!component.isEnabled())
+            if (!component.isEnabled() || component == this)
                 return;
 
             Physics2d physics2d = toPhysics2d(component);
@@ -129,7 +144,7 @@ public class PhysicsManager2d extends Component implements ContactListener {
         };
 
         iterBExit = component -> {
-            if (!component.isEnabled())
+            if (!component.isEnabled() || component == this)
                 return;
 
             Physics2d physics2d = toPhysics2d(component);
@@ -161,7 +176,7 @@ public class PhysicsManager2d extends Component implements ContactListener {
 
     /**
      * Sets the physics time step used by physics engine.
-     * Currently, the physics engine simulates at a fixed time step of (1f / 60f) 60 frames per second.
+     * By default, the physics engine simulates at a fixed time step of (1f / 60f) 60 frames per second.
      * @param physicsTimeStep the fixed time step for physics simulation.
      */
     public void setPhysicsTimeStep(float physicsTimeStep)
@@ -274,6 +289,9 @@ public class PhysicsManager2d extends Component implements ContactListener {
         // Update components
         Array<GameObject> gameObjects = scene.getGameObjects();
         for (GameObject go : gameObjects) {
+            go.forEachComponent(preUpdateIter);
+        }
+        for (GameObject go : gameObjects) {
             go.forEachComponent(fixedUpdateIter);
         }
 
@@ -287,6 +305,10 @@ public class PhysicsManager2d extends Component implements ContactListener {
             }
 
             interpolateTransforms(gameObjects, (float)accumulator/physicsTimeStep);
+        }
+
+        for (GameObject go : gameObjects) {
+            go.forEachComponent(postUpdateIter);
         }
     }
 
@@ -410,7 +432,7 @@ public class PhysicsManager2d extends Component implements ContactListener {
     public void postSolve(Contact contact, ContactImpulse impulse) {}
 
     /**
-     * Creates a new PhysicsManager2d, setup a gameObject to host it, add the gameObject to the scene, then returns the instance.
+     * Creates a new PhysicsManager2d, set up a gameObject to host it, add the gameObject to the scene, then returns the instance.
      * @param scene the host scene
      * @param gravity the gravity for the physics world
      * @return an instance of {@link PhysicsManager2d}

@@ -10,10 +10,10 @@ import com.badlogic.gdx.physics.box2d.*;
  * @author imranabdulmalik
  */
 public class Box2dUtil {
-    public static final int bottomBoundaryIndex = 0;
-    public static final int rightBoundaryIndex = 1;
-    public static final int topBoundaryIndex = 2;
-    public static final int leftBoundaryIndex = 3;
+    public static final int BOTTOM_BOUNDARY_INDEX = 0;
+    public static final int RIGHT_BOUNDARY_INDEX = 1;
+    public static final int TOP_BOUNDARY_INDEX = 2;
+    public static final int LEFT_BOUNDARY_INDEX = 3;
 
     public static Body createBoxBody(World world, Vector2 dimens,
                                      Vector2 position, BodyDef.BodyType bodyType, float density,
@@ -299,19 +299,19 @@ public class Box2dUtil {
         Vector2 end   = new Vector2(boundaryWidth, 0);
         Vector2 pos = new Vector2(0, 0);
 
-        walls[bottomBoundaryIndex] = createEdge(world, pos, start, end, friction);
+        walls[BOTTOM_BOUNDARY_INDEX] = createEdge(world, pos, start, end, friction);
 
         pos.set(0, boundaryHeight);
-        walls[topBoundaryIndex] = createEdge(world, pos, start, end, friction);
+        walls[TOP_BOUNDARY_INDEX] = createEdge(world, pos, start, end, friction);
 
         start.set(0, 0);
         end.set(0, boundaryHeight);
         pos.set(boundaryWidth, 0);
 
-        walls[rightBoundaryIndex] = createEdge(world, pos, start, end, friction);
+        walls[RIGHT_BOUNDARY_INDEX] = createEdge(world, pos, start, end, friction);
 
         pos.set(0, 0);
-        walls[leftBoundaryIndex] = createEdge(world, pos, start, end, friction);
+        walls[LEFT_BOUNDARY_INDEX] = createEdge(world, pos, start, end, friction);
 
         return(walls);
     }
@@ -319,7 +319,7 @@ public class Box2dUtil {
     /**
      * Removes one of the sides created using {@link #createBoundaryBox(World, float, float, float)}.
      * @param boundaries the boundaries
-     * @param index the index of the boundary to remove. It should be one of {@link #topBoundaryIndex}, {@link #bottomBoundaryIndex}, {@link #leftBoundaryIndex}, {@link #bottomBoundaryIndex}
+     * @param index the index of the boundary to remove. It should be one of {@link #TOP_BOUNDARY_INDEX}, {@link #BOTTOM_BOUNDARY_INDEX}, {@link #LEFT_BOUNDARY_INDEX}, {@link #BOTTOM_BOUNDARY_INDEX}
      * @return a new array of bodies for the boundary box.
      */
     public static Body[] removeBoundaryBoxSide(Body[] boundaries, int index) {

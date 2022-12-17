@@ -6,7 +6,7 @@ plugins {
 
 ext {
     PUBLISH_GROUP_ID = 'com.isoterik'
-    PUBLISH_VERSION = '1.0.0-beta.3'
+    PUBLISH_VERSION = '1.0.0'
     PUBLISH_ARTIFACT_ID = 'racken-physics2d'
 }
 
@@ -18,7 +18,7 @@ version = PUBLISH_VERSION
 
 ext {
     gdxVersion = '1.10.0'
-    rackenVersion = '1.0.0-beta.3'
+    rackenVersion = '1.0.0'
 }
 
 repositories {

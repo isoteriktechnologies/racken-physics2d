@@ -5,7 +5,7 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.isoterik.racken.physics2d.PhysicsMaterial2d;
 
 /**
- * A collider that generates a convexed polygon collision boundary. Useful for oddly shaped game objects.
+ * A collider that generates a convex polygon collision boundary. Useful for irregular shaped game objects.
  *
  * @author imranabdulmalik
  */
@@ -21,6 +21,9 @@ public class PolygonCollider extends Collider {
     public PolygonCollider(float[] vertices) throws IllegalArgumentException {
         if (vertices == null || vertices.length == 0)
             throw new IllegalArgumentException("Vertices are required!");
+
+        if (vertices.length % 2 != 0)
+            throw new IllegalArgumentException("Vertices are not paired correctly!");
 
         this.vertices = vertices;
     }

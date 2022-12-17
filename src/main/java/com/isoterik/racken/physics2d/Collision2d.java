@@ -8,7 +8,7 @@ import com.isoterik.racken.GameObject;
 /**
  * A Collision2d is generated when the {@link com.badlogic.gdx.physics.box2d.Body} of a {@link RigidBody2d} collides
  * with another {@link com.badlogic.gdx.physics.box2d.Body}.
- * The other {@link com.badlogic.gdx.physics.box2d.Body} may be the body of another {@link RigidBody2d} but not
+ * The other {@link com.badlogic.gdx.physics.box2d.Body} can be the body of another {@link RigidBody2d} but not
  * always (this can be any other body).
  *
  * @author imranabdulmalik
